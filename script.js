@@ -1,12 +1,19 @@
-// When the page loads
 document.addEventListener("DOMContentLoaded", function() {
-  const btn = document.getElementById("colorBtn");
+  const btnColor = document.getElementById("colorBtn");
+  const btnFont = document.getElementById("fontBtn");
   const title = document.querySelector("h1");
 
-  btn.addEventListener("click", function() {
-    // Pick a random color each time you click
+  // Color change
+  btnColor.addEventListener("click", function() {
     const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
     title.style.color = color;
   });
-});
 
+  // Font change
+  const fonts = ["Arial", "Georgia", "Courier New", "Verdana", "Times New Roman"];
+  let index = 0;
+  btnFont.addEventListener("click", function() {
+    index = (index + 1) % fonts.length;
+    title.style.fontFamily = fonts[index];
+  });
+});
